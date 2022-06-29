@@ -1,0 +1,1 @@
+<view class="user">当前用户为：{{username}}</view>

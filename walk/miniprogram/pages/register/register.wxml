@@ -1,0 +1,9 @@
+<form bindsubmit="btnSub">
+    <input type="text" placeholder="加入公司名称" name="comanyName" />
+    <input type="text" placeholder="加入部门名称" name="department" />
+    <input type="text" placeholder="名字" name="username" />
+    <input type="number" placeholder="工号" name="jobId" />
+    <input type="number" placeholder="密码" name="password" password />
+    <input type="number" placeholder="手机号" name="phoneNumber" />
+    <button type="primary" form-type="submit">点击注册</button>
+</form>

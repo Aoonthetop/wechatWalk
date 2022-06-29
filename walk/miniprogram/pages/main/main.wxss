@@ -1,0 +1,13 @@
+/* pages/main/main.wxss */
+page
+{
+  height: 100%;
+}
+.running{
+    text-align: center;
+    margin-top: 10rpx;
+}
+.create{
+    margin-top: 50rpx;
+    
+}

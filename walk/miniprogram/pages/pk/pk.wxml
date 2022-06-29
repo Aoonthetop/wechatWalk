@@ -1,0 +1,3 @@
+<button style="height:200rpx;width: 400rpx;padding: 72rpx;" class="create" type="primary"  bindtap="createPk">已有？加入比赛！</button>
+
+<button style="height:200rpx;width: 400rpx;padding: 72rpx;" class="create" type="primary"  bindtap="joinPk">创建新的比赛</button>

@@ -1,0 +1,13 @@
+<!--pages/game/game.wxml-->
+<view class="tr">
+    <view class="th">编号</view>
+    <view class="th">姓名</view>
+    <view class="th ">步数</view>
+</view>
+<view class="tr1">
+    <view class="th1">{{id}}</view>
+    <view class="th1">{{username}}</view>
+    <view class="th1">{{todayRun}}</view>
+</view>
+
+<button style="margin-top: 50rpx;" type="primary" bindtap="joinGame">加入比赛</button>

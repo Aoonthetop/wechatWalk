@@ -1,0 +1,5 @@
+<view style="width: 100%; height: 80%;">
+  <map longitude='{{longitude}}' latitude='{{latitude}}' style="width: 100%; height: 100%;" show-location="true"></map>
+</view>
+<view class="running">今日已走：{{todayRun}}</view>
+<button class="create" type="primary" bindtap="jump">点击创建比赛</button>

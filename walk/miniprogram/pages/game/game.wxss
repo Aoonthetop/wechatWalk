@@ -1,0 +1,42 @@
+/* pages/game/game.wxss */
+.table {
+    border: 0px solid darkgray;
+}
+
+.tr {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 3rem;
+    align-items: center;
+}
+
+.th {
+    width: 40%;
+    justify-content: center;
+    background: #E1B368;
+    color: #fff;
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    font-size: 13px;
+}
+
+.tr1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 3rem;
+    align-items: center;
+}
+
+.th1 {
+    width: 40%;
+    justify-content: center;
+    background: #fff;
+    color: #E1B368;
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    font-size: 13px;
+}

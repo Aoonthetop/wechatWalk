@@ -1,0 +1,9 @@
+<form bindsubmit="btnSub">
+    <input type="number" placeholder="比赛编码" name="gameId" />
+    <input type="text" placeholder="比赛名称" name="gameName" />
+    <input type="text" placeholder="比赛规则" name="gameRule" />
+    <input type="text" placeholder='开始时间' name="beginTime"/>
+    <input type="text" placeholder="结束时间" name="overTime" />
+    <input type="text" placeholder="创建者" name="player" />
+    <button type="primary" form-type="submit">点击创建比赛</button>
+</form>

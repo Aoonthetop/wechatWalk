@@ -1,0 +1,4 @@
+<form bindsubmit="selectGame">
+    <input placeholder="请输入比赛编号点击查询" name="gameId" />
+    <button form-type="submit" type="primary">点击查询</button>
+</form>

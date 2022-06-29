@@ -1,0 +1,7 @@
+<form bindsubmit="login">
+<input  placeholder="手机号码/企业账号" name="phoneNumber"/>
+<input  placeholder="密码" password name="password" />
+<navigator url="/pages/register/register"></navigator>
+<navigator url="/pages/register/register">还没有账号？点击注册</navigator>
+<button type="primary" form-type="submit">点击登录</button>
+</form>

@@ -1,0 +1,5 @@
+/* pages/mine/mine.wxss */
+.user{
+    margin-top: 300rpx;
+    text-align: center;
+}

@@ -1,0 +1,5 @@
+/* pages/pk/pk.wxss */
+.create{
+    padding-top: 50rpx;
+    margin: 220rpx;
+}

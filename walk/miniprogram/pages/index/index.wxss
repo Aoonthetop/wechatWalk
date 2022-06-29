@@ -1,0 +1,12 @@
+
+input {
+    border: 2px solid #888888;
+    border-radius: 5px;
+    padding: 10rpx;
+    margin: 120rpx;
+}
+navigator{
+    text-align: center;
+    padding: 20rpx;
+    margin:120rpx;
+}
