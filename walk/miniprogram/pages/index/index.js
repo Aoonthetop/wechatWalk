@@ -27,14 +27,11 @@ Page({
                         wx.showToast({
                             title: '登录成功',
                             icon: 'none'
-                        }),
-                        
-                        
+                        }),                      
                         wx.switchTab({
                           url: '../main/main',
                         }),
-                        wx.setStorageSync("username",res.data[0].username),
-                        console.log(res.data[0].username)
+                        wx.setStorageSync("userres",res.data[0])
                     } else {
                         wx.showToast({
                             title: '密码错误！',

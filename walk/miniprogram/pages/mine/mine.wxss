@@ -1,5 +1,10 @@
 /* pages/mine/mine.wxss */
 .user{
+    background:rgba(156, 204, 24, 0.164);
+    border-radius: 15px;
     margin-top: 300rpx;
+    margin: 50rpx;
+    padding: 40rpx;
     text-align: center;
+    border:3rpx solid #888888;
 }

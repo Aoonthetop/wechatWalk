@@ -6,6 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        userres1:[],
         username:''
     },
     
@@ -13,10 +14,10 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(options) {
-        this.setData({username:wx.getStorageSync('username')})
-    
-        
+     onLoad(options) {
+        this.setData({
+            userres1:wx.getStorageSync('userres')
+        })
     },
     
 
@@ -24,7 +25,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
+        
     },
 
     /**

@@ -1,74 +1,83 @@
 // pages/game/game.js
-const db=wx.cloud.database()
+const db = wx.cloud.database()
+const _=db.command
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        id:1,
-        gameList:[],
-        todayRun:0,
-        username:''
+        userres1:[],
+        playList:[],
+        testList:[]
+    },
 
-    },
-    gettodayRun(){
-        wx.getWeRunData({
-          success: (res) => {
-              wx.cloud.callFunction({
-                  name:'deswerundata',
-                  data:{
-                      weRunData:wx.cloud.CloudID(res.cloudID)
-                  }
-              }).then((res)=>{
-                  this.setData({
-                      todayRun:res.result.weRunData.data.stepInfoList[0].step
-                  })
-                  console.log(res.result.weRunData.data.stepInfoList[0].step)
-              })
-          },
-        })
-    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        
-        this.setData({username:wx.getStorageSync('username')})
+        this.setData({
+            userres1:wx.getStorageSync('userres')
+        })
+        let that=this
+        console.log(wx.getStorageSync('userres')._id)
+        db.collection('pk').where({
+            gameId:this.options.gameId0
+        }).get({
+            success(res){
+                that.setData({
+                    playList:res.data[0].player
+                })
+            }
+        })
     },
-    
+        
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-        let that=this
+        var userres0=wx.getStorageSync('userres')
+        var username=userres0.username
+        var step=userres0.todayStep
+        var _id=userres0._id
         db.collection('pk').where({
-            gameId:options.gameId
+            gameId: this.options.gameId0
         }).get({
-            success(res){
-                if(res.data.length===1){
-                    console.log(res.data)
-                    that.setData({
-                        gameList:res.data,
+            success(res) {
+                if (res.data.length === 1) {
+                    db.collection('pk').doc(res.data[0]._id).update({
+                        data:{
+                            player:_.push({username,step,_id})
+                        }
+                    }),this.onLoad()
+                } else {
+                    wx.showModal({
+                      title:"找不到比赛",
+                      showCancel:false,
                     })
-                }else{
-                    wx.showToast({
-                      title: '没有找到该比赛',
-                      icon:'none'
+                    wx.navigateTo({
+                      url: '../pking/pking',
                     })
-                    
+
                 }
             }
         })
-
+        db.collection('pk').orderBy('step','desc').get().then(res=>{
+            console.log(res.data)
+            this.setData({
+                testList:res.data
+            })
+        })
+        
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        
     },
 
     /**

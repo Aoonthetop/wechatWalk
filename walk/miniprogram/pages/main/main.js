@@ -1,15 +1,15 @@
 // pages/main/main.js
+const db = wx.cloud.database()
+const app = getApp()
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
         latitude: 10.11,
         longitude: 10.11,
-        todayRun:0
+        todayRun: 0,
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
@@ -17,34 +17,41 @@ Page({
         var that = this
         //获取当前的地理位置
         wx.getLocation({
-            // 获取成功
-            success: function (res) {
-                //赋值经纬度
-                that.setData({
-                    latitude: res.latitude,
-                    longitude: res.longitude,
+                // 获取成功
+                success: function (res) {
+                    //赋值经纬度
+                    that.setData({
+                        latitude: res.latitude,
+                        longitude: res.longitude,
+                    })
+                }
+            }),
+            this.gettodayRun()
+    },
+    gettodayRun() {
+        wx.getWeRunData({
+            success: (res) => {
+                wx.cloud.callFunction({
+                    name: 'deswerundata',
+                    data: {
+                        weRunData: wx.cloud.CloudID(res.cloudID)
+                    }
+                }).then((res) => {
+                    var userres1=wx.getStorageSync('userres')
+                    db.collection("walk").doc(userres1._id).update({
+                        data:{
+                            todayStep:res.result.weRunData.data.stepInfoList[30].step
+                        }
+                    })
+                    this.setData({
+                            todayRun: res.result.weRunData.data.stepInfoList[30].step,
+                        })
                 })
             }
-        }),
-        this.gettodayRun()
-    },
-    gettodayRun(){
-        wx.getWeRunData({
-          success: (res) => {
-              wx.cloud.callFunction({
-                  name:'deswerundata',
-                  data:{
-                      weRunData:wx.cloud.CloudID(res.cloudID)
-                  }
-              }).then((res)=>{
-                  this.setData({
-                      todayRun:res.result.weRunData.data.stepInfoList[0].step
-                  })
-                  console.log(res.result.weRunData.data.stepInfoList[0].step)
-              })
-          },
         })
+
     },
+
     getUserRun() {
         wx.getSetting({
             success(res) {
@@ -57,20 +64,18 @@ Page({
                         },
                         fail() {
                             wx.showModal({
-                              content: '请点击设置中开启权限',
-                              title: '读取微信运动失败',
+                                content: '请点击设置中开启权限',
+                                title: '读取微信运动失败',
                             })
                         }
                     })
-                } else {
-                    //读取数据
                 }
             }
         })
     },
-    jump(){
+    jump() {
         wx.switchTab({
-          url: '../pk/pk',
+            url: '../pk/pk',
         })
     },
 
@@ -79,6 +84,7 @@ Page({
      */
     onReady() {
         this.getUserRun()
+
 
     },
 

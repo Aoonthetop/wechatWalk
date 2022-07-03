@@ -1,1 +1,8 @@
-<view class="user">当前用户为：{{username}}</view>
+<form>
+    <view class="user">当前用户：{{userres1.username}}</view>
+    <view class="user">账号：{{userres1.phoneNumber}}</view>
+    <view class="user">用户工号:{{userres1.jobId}}</view>
+    <view class="user">所属公司：{{userres1.comanyName}}</view>
+    <view class="user">所属部门:{{userres1.department}}</view>
+    <view class="user">今日步数:{{userres1.todayStep}}</view>
+</form>

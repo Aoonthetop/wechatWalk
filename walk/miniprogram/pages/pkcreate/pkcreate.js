@@ -24,7 +24,7 @@ Page({
                 gameRule:gameRule,
                 beginTime:beginTime,
                 overTime:overTime,
-                player:player
+                player:[{player,gameId}]
             },
 
         }).then(

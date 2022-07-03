@@ -1,5 +1,5 @@
 /* pages/game/game.wxss */
-.table {
+.block {
     border: 0px solid darkgray;
 }
 

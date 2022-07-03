@@ -12,9 +12,9 @@ Page({
 
     selectGame(res) {
         //获取gameId
-      const gameId=res.detail.value.gameId
+      const gameId0=res.detail.value.gameId
       wx.navigateTo({
-        url: '../game/game?gameId='+gameId,
+        url: '../game/game?gameId0='+gameId0,
       })
     },
     
