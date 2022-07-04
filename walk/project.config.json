@@ -40,7 +40,8 @@
         "minifyWXML": true,
         "useStaticServer": true
     },
-    "appid": "wx9728858a57926930",
+    //appid为你的微信开发者账号
+    "appid": "*",
     "projectname": "quickstart-wx-cloud",
     "libVersion": "2.14.1",
     "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
